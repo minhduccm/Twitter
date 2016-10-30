@@ -41,7 +41,10 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
   }
   
   func postStatusUpdateWithParams(params: NSDictionary?, completion: @escaping (_ status: Tweet?, _ error: NSError?) -> ()) {
-    self.post("1.1/statuses/update.json",
+    
+    
+    
+    TwitterClient.sharedInstance.post("1.1/statuses/update.json",
       parameters: params,
       success: { (operation: AFHTTPRequestOperation, response: Any) -> Void in
         let status = Tweet(dictionary: response as! NSDictionary)
@@ -85,7 +88,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
       requestToken: BDBOAuth1Credential(queryString: url.query),
       success: { (accessToken: BDBOAuth1Credential?) -> Void in
         
-        print("Got the access token!")
         TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
         TwitterClient.sharedInstance.get(
           "1.1/account/verify_credentials.json",

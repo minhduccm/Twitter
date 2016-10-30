@@ -91,6 +91,4 @@ extension TimelineViewController : UITableViewDataSource {
   }
 }
 
-extension TimelineViewController : UITableViewDelegate {
-  
-}
+extension TimelineViewController : UITableViewDelegate {}
