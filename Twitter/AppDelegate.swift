@@ -12,11 +12,27 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.userDidLogout), name: NSNotification.Name(rawValue: userDidLogoutNotification), object: nil)
+    
+//    if User.currentUser != nil {
+//      let vc = storyboard.instantiateViewController(withIdentifier: "LandingPageNavigationController") as UIViewController
+//      window?.rootViewController = vc
+//    }
     return true
+  }
+  
+  func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+    TwitterClient.sharedInstance.openURL(url: url as NSURL)
+    return true
+  }
+  
+  func userDidLogout() {
+    let vc = storyboard.instantiateInitialViewController()! as UIViewController
+    window?.rootViewController = vc
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
