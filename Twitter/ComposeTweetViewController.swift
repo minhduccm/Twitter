@@ -59,7 +59,6 @@ class ComposeTweetViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         return
       }
-      //NSNotificationCenter.defaultCenter().postNotificationName(TwitterEvents.StatusPosted, object: status)
       self.dismiss(animated: true, completion: nil)
     })
   }

@@ -44,11 +44,11 @@ class TimelineViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "StatusPosted"), object: nil, queue: nil) { (notification: Notification!) -> Void in
-      let tweet = notification.object as! Tweet
-      self.tweets?.insert(tweet, at: 0)
-      self.timelineTableView.reloadData()
-    }
+//    NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "StatusPosted"), object: nil, queue: nil) { (notification: Notification!) -> Void in
+//      let tweet = notification.object as! Tweet
+//      self.tweets?.insert(tweet, at: 0)
+//      self.timelineTableView.reloadData()
+//    }
     
     timelineTableView.dataSource = self
     timelineTableView.delegate = self
