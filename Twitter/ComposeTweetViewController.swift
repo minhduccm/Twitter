@@ -44,7 +44,7 @@ class ComposeTweetViewController: UIViewController {
   }
   
   @IBAction func tweetButtonTap(_ sender: AnyObject) {
-    let tweet = tweetTextView.text
+    let tweet = tweetTextView.text!
     if (tweet == "") {
       return
     }

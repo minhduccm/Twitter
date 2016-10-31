@@ -42,8 +42,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
   
   func postStatusUpdateWithParams(params: NSDictionary?, completion: @escaping (_ status: Tweet?, _ error: NSError?) -> ()) {
     
-    
-    
     TwitterClient.sharedInstance.post("1.1/statuses/update.json",
       parameters: params,
       success: { (operation: AFHTTPRequestOperation, response: Any) -> Void in
